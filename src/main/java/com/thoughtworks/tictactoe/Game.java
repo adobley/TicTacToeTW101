@@ -11,7 +11,7 @@ public class Game {
     private Board board;
     private List<String> moves;
     private String currentPlayer;
-    private Boolean won;
+    private Boolean done;
 
     public Game(PrintStream printStream, BufferedReader bufferedReader,
                 Board board, List<String> moves) {
@@ -23,12 +23,12 @@ public class Game {
 
     public void start() {
         currentPlayer = "X";
-        won = false;
+        done = false;
         gameLoop();
     }
 
     private void gameLoop() {
-        while (!won) {
+        while (!done) {
             board.drawBoard(moves);
             getInput();
         }
@@ -60,5 +60,12 @@ public class Game {
 
     public Boolean isPositionEmpty(int index) {
         return moves.get(index).equals(" ");
+    }
+
+    public void checkBoard() {
+        if (!moves.contains(" ")) {
+            printStream.println("Game is a draw");
+            done = true;
+        }
     }
 }

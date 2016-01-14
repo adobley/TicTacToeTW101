@@ -68,4 +68,16 @@ public class GameTest {
         game.makeMove(1, "X");
         verify(printStream).println("Location already taken, try again.");
     }
+
+    @Test
+    public void shouldEndGameWhenBoardIsFullWithNoWinner() {
+        Collections.replaceAll(moves, " ", "X");
+        game.checkBoard();
+        verify(printStream).println("Game is a draw");
+    }
+
+    @Test
+    public void shouldPrintDrawWhenGameIsStalemated() {
+
+    }
 }

@@ -31,7 +31,7 @@ public class GameTest {
                 "  |   |\n" +
                 "---------\n" +
                 "  |   |";
-        game.start();
+        game.drawBoard();
         verify(printStream).println(correctBoard);
     }
 

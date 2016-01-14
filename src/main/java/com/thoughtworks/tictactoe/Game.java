@@ -20,12 +20,16 @@ public class Game {
     }
 
     public void start() {
-        printStream.println(board);
+        drawBoard();
         printStream.println("Enter a number between 1 and 9:");
         try {
             String input = bufferedReader.readLine();
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void drawBoard() {
+        printStream.println(board);
     }
 }

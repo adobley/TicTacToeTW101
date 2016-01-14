@@ -66,6 +66,6 @@ public class GameTest {
     public void shouldPrintWarningWhenMovingInOccupiedPosition() {
         moves.set(1, "O");
         game.makeMove(1, "X");
-        verify(printStream).println("That position is currently taken, try again.");
+        verify(printStream).println("Location already taken, try again.");
     }
 }

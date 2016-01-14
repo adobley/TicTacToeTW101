@@ -54,7 +54,7 @@ public class Game {
             if (character.equals("X")) currentPlayer = "O";
                 else currentPlayer = "X";
         } else {
-            printStream.println("That position is currently taken, try again.");
+            printStream.println("Location already taken, try again.");
         }
     }
 

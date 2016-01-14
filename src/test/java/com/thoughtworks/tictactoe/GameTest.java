@@ -76,4 +76,21 @@ public class GameTest {
         verify(printStream).println("Game is a draw");
     }
 
+    @Test
+    public void shouldDeclareCorrectWinnerWhenXWins() {
+        moves.set(0, "X");
+        moves.set(3, "X");
+        moves.set(6, "X");
+        game.checkBoard();
+        verify(printStream).println("Player X wins!");
+    }
+
+    @Test
+    public void shouldDeclareCorrectWinnerWhenOWins() {
+        moves.set(1, "O");
+        moves.set(4, "O");
+        moves.set(7, "O");
+        game.checkBoard();
+        verify(printStream).println("Player O wins!");
+    }
 }

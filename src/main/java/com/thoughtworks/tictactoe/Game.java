@@ -6,6 +6,7 @@ import java.io.PrintStream;
 import java.util.List;
 
 public class Game {
+
     private PrintStream printStream;
     private BufferedReader bufferedReader;
     private Board board;
@@ -19,11 +20,11 @@ public class Game {
         this.bufferedReader = bufferedReader;
         this.board = board;
         this.moves = moves;
+        currentPlayer = "X";
+        done = false;
     }
 
     public void start() {
-        currentPlayer = "X";
-        done = false;
         gameLoop();
     }
 
@@ -32,6 +33,8 @@ public class Game {
             board.drawBoard(moves);
             getInput();
         }
+
+        board.drawBoard(moves);
     }
 
     public void getInput() {

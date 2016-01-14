@@ -12,6 +12,7 @@ import java.util.List;
 
 import static junit.framework.TestCase.assertFalse;
 import static org.junit.Assert.assertTrue;
+import static org.mockito.Matchers.contains;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
@@ -35,7 +36,7 @@ public class GameTest {
     @Test
     public void shouldPromptPlayerWhenGettingInput() {
         game.getInput();
-        verify(printStream).println("Enter a number between 1 and 9:");
+        verify(printStream).println(contains("Enter a number between 1 and 9:"));
     }
     
     @Test
@@ -51,13 +52,20 @@ public class GameTest {
     }
 
     @Test
-    public void shouldReturnTrueIfSpaceIsEmpty() {
+    public void shouldReturnTrueIfPositionIsEmpty() {
         assertTrue(game.isPositionEmpty(1));
     }
 
     @Test
-    public void shouldReturnFalseIfSpaceIsOccupied() {
+    public void shouldReturnFalseIfPositionIsOccupied() {
         moves.set(1, "X");
         assertFalse(game.isPositionEmpty(1));
+    }
+
+    @Test
+    public void shouldPrintWarningWhenMovingInOccupiedPosition() {
+        moves.set(1, "O");
+        game.makeMove(1, "X");
+        verify(printStream).println("That position is currently taken, try again.");
     }
 }

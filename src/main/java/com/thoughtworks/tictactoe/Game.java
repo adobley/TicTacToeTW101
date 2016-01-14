@@ -35,13 +35,13 @@ public class Game {
     }
 
     public void getInput() {
-        printStream.println("Enter a number between 1 and 9:");
+        printStream.println(currentPlayer + ", Enter a number between 1 and 9:");
         String input = null;
+
         try {
             input = bufferedReader.readLine();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        } catch (IOException e) { e.printStackTrace(); }
+
         if (input != null) {
             int index = Integer.parseInt(input) - 1;
             makeMove(index, currentPlayer);
@@ -49,9 +49,13 @@ public class Game {
     }
 
     public void makeMove(int index, String character) {
-        moves.set(index, character);
-        if (character.equals("X")) currentPlayer = "O";
-            else currentPlayer = "X";
+        if (isPositionEmpty(index)) {
+            moves.set(index, character);
+            if (character.equals("X")) currentPlayer = "O";
+                else currentPlayer = "X";
+        } else {
+            printStream.println("That position is currently taken, try again.");
+        }
     }
 
     public Boolean isPositionEmpty(int index) {

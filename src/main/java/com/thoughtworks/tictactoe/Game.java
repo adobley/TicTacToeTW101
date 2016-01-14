@@ -45,6 +45,7 @@ public class Game {
         if (input != null) {
             int index = Integer.parseInt(input) - 1;
             makeMove(index, currentPlayer);
+            checkBoard();
         }
     }
 

@@ -1,5 +1,6 @@
 package com.thoughtworks.tictactoe;
 
+import java.io.BufferedReader;
 import java.io.PrintStream;
 
 public class Game {
@@ -11,12 +12,13 @@ public class Game {
             "  |   |";
     private PrintStream printStream;
 
-    public Game(PrintStream printStream) {
+    public Game(PrintStream printStream, BufferedReader bufferedReader) {
 
         this.printStream = printStream;
     }
 
     public void start() {
         printStream.println(board);
+        printStream.println("Enter a number between 1 and 9:");
     }
 }

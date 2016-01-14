@@ -3,6 +3,8 @@ package com.thoughtworks.tictactoe;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.PrintStream;
 
 import static org.junit.Assert.*;
@@ -13,11 +15,13 @@ public class GameTest {
 
     private PrintStream printStream;
     private Game game;
+    private BufferedReader bufferedReader;
 
     @Before
     public void setup() {
         printStream = mock(PrintStream.class);
-        game = new Game(printStream);
+        bufferedReader = mock(BufferedReader.class);
+        game = new Game(printStream, bufferedReader);
     }
 
     @Test
@@ -35,6 +39,12 @@ public class GameTest {
     public void shouldPromptPlayerWhenGameStarts() {
         game.start();
         verify(printStream).println("Enter a number between 1 and 9:");
+    }
+    
+    @Test
+    public void shouldCallBufferReaderWhenGettingInput() throws IOException {
+        game.start();
+        verify(bufferedReader).readLine();
     }
 
 }

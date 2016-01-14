@@ -14,11 +14,11 @@ public class GameTest {
     public void shouldDisplayBoardWhenGameStarts() {
         PrintStream printStream = mock(PrintStream.class);
         Game game = new Game(printStream);
-        String correctBoard = "   |   |\n" +
+        String correctBoard = "  |   |\n" +
                 "---------\n" +
-                "   |   |\n" +
+                "  |   |\n" +
                 "---------\n" +
-                "   |   |";
+                "  |   |";
         game.start();
         verify(printStream).println(correctBoard);
     }

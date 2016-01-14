@@ -3,6 +3,8 @@ package com.thoughtworks.tictactoe;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class Main {
 
@@ -10,7 +12,9 @@ public class Main {
         BufferedReader bufferedReader = new BufferedReader(
                 new InputStreamReader(System.in));
         Board board = new Board(System.out);
-        Game game = new Game(System.out, bufferedReader, board);
+        Integer boardSize = 9;
+        List<String> moves = new ArrayList<String>(Collections.nCopies(boardSize, " "));
+        Game game = new Game(System.out, bufferedReader, board, moves);
         game.start();
     }
 }

@@ -6,9 +6,12 @@ import org.junit.Test;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
 public class GameTest {
@@ -16,23 +19,18 @@ public class GameTest {
     private PrintStream printStream;
     private Game game;
     private BufferedReader bufferedReader;
+    private Board board;
 
     @Before
     public void setup() {
         printStream = mock(PrintStream.class);
         bufferedReader = mock(BufferedReader.class);
-        game = new Game(printStream, bufferedReader);
+        board = mock(Board.class);
+        game = new Game(printStream, bufferedReader, board);
     }
 
     @Test
-    public void shouldDisplayBoardWhenGameStarts() {
-        String correctBoard =  "  |   |\n" +
-                "---------\n" +
-                "  |   |\n" +
-                "---------\n" +
-                "  |   |";
-        game.drawBoard();
-        verify(printStream).println(correctBoard);
+    public void shouldPrintEmptyBoardWhenNoMoves() {
     }
 
     @Test

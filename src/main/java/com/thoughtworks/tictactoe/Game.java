@@ -5,22 +5,18 @@ import java.io.IOException;
 import java.io.PrintStream;
 
 public class Game {
-
-    public static final String board = "  |   |\n" +
-            "---------\n" +
-            "  |   |\n" +
-            "---------\n" +
-            "  |   |";
     private PrintStream printStream;
     private BufferedReader bufferedReader;
+    private Board board;
 
-    public Game(PrintStream printStream, BufferedReader bufferedReader) {
+    public Game(PrintStream printStream, BufferedReader bufferedReader, Board board) {
         this.printStream = printStream;
         this.bufferedReader = bufferedReader;
+        this.board = board;
     }
 
     public void start() {
-        drawBoard();
+        board.drawBoard();
         printStream.println("Enter a number between 1 and 9:");
         try {
             String input = bufferedReader.readLine();
@@ -29,7 +25,7 @@ public class Game {
         }
     }
 
-    public void drawBoard() {
-        printStream.println(board);
+    public void makeMove(String character, int position) {
+
     }
 }

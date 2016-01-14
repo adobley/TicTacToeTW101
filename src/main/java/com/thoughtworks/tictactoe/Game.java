@@ -4,6 +4,11 @@ import java.io.PrintStream;
 
 public class Game {
 
+    public static final String board = "   |   |\n" +
+            "---------\n" +
+            "   |   |\n" +
+            "---------\n" +
+            "   |   |";
     private PrintStream printStream;
 
     public Game(PrintStream printStream) {
@@ -12,10 +17,6 @@ public class Game {
     }
 
     public void start() {
-        printStream.println("   |   |\n" +
-                "---------\n" +
-                "   |   |\n" +
-                "---------\n" +
-                "   |   |");
+        printStream.println(board);
     }
 }

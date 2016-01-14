@@ -70,14 +70,10 @@ public class GameTest {
     }
 
     @Test
-    public void shouldEndGameWhenBoardIsFullWithNoWinner() {
+    public void shouldPrintDrawBoardIsFullWithNoWinner() {
         Collections.replaceAll(moves, " ", "X");
         game.checkBoard();
         verify(printStream).println("Game is a draw");
     }
 
-    @Test
-    public void shouldPrintDrawWhenGameIsStalemated() {
-
-    }
 }
